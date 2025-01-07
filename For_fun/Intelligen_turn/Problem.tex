@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Maximum Likelihood}
+\author{}
+\date{}
+\maketitle
+
+\section*{Problem Statement}
+
+Consider a game with $M$ levels and $N$ players. The rules are:
+\begin{itemize}
+    \item Everyone starts at level 1, and player 1 starts the game. Player $n$ plays after player $n-1$, unless $n=1$, who plays after player $N$.
+    \item For a player $i$ at level $j$, the probability to move to the next level is $A_{ij}$.
+    \item For $n > 1$, no player can stay at the same level. If a player moves to level $n$, any player at $n$ moves to $n-1$.
+    \item The values of $A_{ij}$ depend on the player's skill and the natural difficulty, both of which are normally distributed with slow variation.
+\end{itemize}
+
+Let 
+
+
+\[
+P_j = \lim_{N \rightarrow \infty} \frac{1}{N} \sum_{j=1}^{i=N} A_{ij}, \quad Q_i = \lim_{M \rightarrow \infty} \frac{1}{M} \sum_{i=1}^{i=M} A_{ij}
+\]
+
+
+
+The probabilities $P_j$ and $Q_i$ are modeled as follows:
+
+
+\[
+P_j \sim \frac{1}{1 + e^{-\left( P_{j-1} + N(\mu_1, \sigma_1) \right)}}
+\]
+
+
+
+
+\[
+Q_i \sim \frac{1}{1 + e^{-N(\mu_2, \sigma_2)}}
+\]
+
+
+
+If the player $s$ has the highest chance of winning, create a program to analyze the variation of 
+
+
+\[
+\lambda = \frac{s}{N}
+\]
+
+
+with the parameters of the game.
+
+\end{document}
+
